@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Préstame una feria</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: red;
+    }
+    #mensaje {
+      font-size: 32px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="mensaje">Préstame una feria</div>
+  <br>
+  <button onclick="responder('si')">Sí</button>
+  <button onclick="responder('no')" id="btnNo">No</button>
+
+  <script>
+    let noCount = 0;
+
+    function responder(respuesta) {
+      const mensaje = document.getElementById("mensaje");
+      const btnNo = document.getElementById("btnNo");
+
+      if (respuesta === 'si') {
+        mensaje.textContent = "Qué significa el bro respeta";
+      } else {
+        if (noCount < 5) {
+          noCount++;
+          btnNo.style.fontSize = (16 - noCount * 2) + "px";
+          btnNo.style.left = (Math.random() * 200 - 100) + "px";
+          btnNo.style.top = (Math.random() * 200 - 100) + "px";
+          btnNo.style.position = "relative";
+        } else {
+          mensaje.textContent = "187.50.1.129";
+          btnNo.style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
